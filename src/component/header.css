@@ -1,0 +1,47 @@
+.header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 20%;
+}
+.header-Blogs a, .header-signup a, .header-logged a{
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    
+
+}
+.header-logged{
+    display: flex;
+    width: 30%;
+    justify-content: space-around;
+    align-items: center;
+}
+.header-logged h3{
+    color: white;
+    font-size: 1.1rem;
+    margin-right: 10px;
+}
+
+@media only screen and (max-width: 500px){
+    .header{
+
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .header-Blogs, .header-signup{
+        width: 75%;
+    
+    }
+    .header-logged{
+        flex-direction: column;
+    }
+    .header-logged h3{
+        position: relative;
+        left: 28px;
+        top: 35px;
+
+
+    }
+}

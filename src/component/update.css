@@ -1,0 +1,17 @@
+.update-main{
+    background-color: rgb(240, 238, 238);
+}
+
+.update-form{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.update-form textarea{
+    background-color: white;
+    border: 1px solid black;
+}
+.button{
+    color: black;
+}
