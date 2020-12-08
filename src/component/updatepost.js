@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {Link, useLocation, Redirect} from "react-router-dom";
 import axios from "axios";
 import "./update.css";
+import 'antd/dist/antd.css';
+import { Form, Input, Button, Radio } from 'antd';
 
 class Update extends Component{
    constructor(props){
@@ -33,7 +35,7 @@ class Update extends Component{
        console.log(this.state.updateId);
 
        axios
-       .put(`https://5fb4b432e473ab0016a16c66.mockapi.io/post/${this.state.updateId}`, obj)
+       .put(`https://5fb4b432e473ab0016a16c66.mockapi.io/blogs/${this.state.updateId}`, obj)
        .then((res) => {
          //   console.log(res.data)
         
@@ -45,15 +47,17 @@ class Update extends Component{
    }
     render(){
         return(
-            <div className="update-main">
-              <form onSubmit={this.submitUpdateForm} className="update-form">
-              <input type="text" placeholder="Blog Title" name="updatePosts" value={this.state.updatePosts} 
+            <div className="update-post">
+              <Form onSubmit={this.submitUpdateForm} className="update-form">
+              <input type="text" name="updatePosts" value={this.state.posts} 
                 onChange={this.handleUpdateBlog} className="admin-input"/><br/>
-                <textarea name="Text1" cols="40" rows="5" name="updateDetail" placeholder="Details" 
-                onChange={this.handleUpdateBlog} value={this.state.updateDetail}></textarea><br/>
+                <textarea name="Text1" cols="20" rows="5" name="updateDetail"
+                onChange={this.handleUpdateBlog} value={this.state.detail}></textarea><br/>
                  <input type="submit" value="Update" className="button"/>
-              </form>
-              <Link to="../admin">Go back</Link>
+              </Form>
+             
+           <Button> <Link to="/">All posts</Link></Button>   
+           <br></br>
 
             </div>
         )
