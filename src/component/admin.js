@@ -47,11 +47,11 @@ class Admin extends Component {
     var obj = {
       posts: this.state.title,
       detail: this.state.description,
-      createdBy: this.state.author,
+      createdBy: this.state.username,
     };
     console.log(obj);
     axios
-      .post("https://5fb4b432e473ab0016a16c66.mockapi.io/post", obj) //Uploading my blog to mockapi
+      .post("https://5fb4b432e473ab0016a16c66.mockapi.io/blogs", obj) //Uploading my blog to mockapi
       .then((result) => {
         console.log(result.data);
       })
@@ -63,7 +63,7 @@ class Admin extends Component {
     const idd = id;
     alert("Blog Deleted !!");
     axios
-      .delete(`https://5fb4b432e473ab0016a16c66.mockapi.io/post/${idd}`)
+      .delete(`https://5fb4b432e473ab0016a16c66.mockapi.io/blogs/${idd}`)
       .then((result) => {
         console.log(result.data);
       })

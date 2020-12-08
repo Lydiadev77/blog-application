@@ -65,34 +65,38 @@ class users extends Component {
           </Card> 
         {users.map((u) => (
    
-   <Row gutter={[16, 48]} style={{ margin: 5 }} >
-   <Card
-     hoverable
-     style={{ width: 240 }} 
-     cover={
-       <img
-         alt="image"
-         src={u.image}
-       />
-     } className="single-blog"
-   >
-       { this.state.usernam ===u.createdBy ?
-  <>
-  <Button type="primary" shape="square" className="single-blog-btn1" onClick={() =>this.handleClick(u.id)} >
-  <DeleteOutlined />
-  </Button>
-  <Button type="primary" shape="square" className="single-blog-btn2" >
-  <Link to={{
-        pathname:'./admin/update',
-        statee:u.id
-    }}> <EditOutlined /> </Link>
-  </Button>
-  </>  : null }
-     <Meta title={u.posts} description={u.detail} />
-     <p className="blog-footer">Posted by: {u.createdBy}</p>
-   </Card> 
+           <Row gutter={[16, 48]} style={{ margin: 5 }} >
+         
+          <Card
+            hoverable
+            style={{ width: 240 }} 
+            cover={
+              <img
+                alt="image"
+                src={u.avatar}
+              />
+            } className="single-blog"
+          >
+              { this.state.usernam ===u.author ?
+         <>
+         <Button type="primary" shape="square" className="single-blog-btn1" onClick={() =>this.handleClick(u.id)} >
+         <DeleteOutlined />
+         </Button>
+         <Button type="primary" shape="square" className="single-blog-btn2" >
+         <Link to={{
+               pathname:'./admin/update',
+               statee:u.id
+           }}> <EditOutlined /> </Link>
+         </Button>
+         </>  : null }
+            <Meta title={u.posts} description={u.detail} />
+            <h1>{u.title}</h1>
+            <p>{u.description}</p>
+            <h4>Posted by: {u.author}</h4>
+          </Card> 
 
-   </Row>
+          </Row>
+
         ))}
       </div>
     );

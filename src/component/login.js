@@ -1,11 +1,9 @@
 import React, { Component, useEffect, useState } from "react";
-import { Redirect,Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import axios from "axios";
 import "./login.css";
-import 'antd/dist/antd.css';
-import { Input } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
-import { Button } from 'antd';
+import { Link } from "react-router-dom";
+
 
 class Login extends Component {
   constructor(props) {  
@@ -20,7 +18,7 @@ class Login extends Component {
  
   logindetail = (event) => {
     this.setState({ [event.target.name]: event.target.value });
-    console.log(this.state);
+    //console.log(this.state);
   };
 
   handlelogin = (event) => {
@@ -40,8 +38,12 @@ class Login extends Component {
    for(let i=0;i<this.state.details.length;i++){
      counter++
        if(this.state.details[i].name==this.state.name && this.state.details[i].password==this.state.password){
-         localStorage.setItem('token',"jshdygcbdhhshakkwazxfr");
-           this.state.loggedIn= true;
+         localStorage.setItem("token","jshdygcbdhhshakkwazxfr");
+         const UserName=this.state.name;
+         localStorage.setItem("username",UserName);
+         this.setState({
+           loggedIn: true
+         })
            break;
        }
        else if(counter==this.state.details.length){
@@ -53,7 +55,7 @@ class Login extends Component {
 
   render() {
     if (this.state.loggedIn) {
-      return <Redirect to="/admin" />;
+      return (<Redirect to="/admin" />);
     }
     return (
       <div className="main"> 
@@ -61,12 +63,9 @@ class Login extends Component {
           <input
             type="text"
             name="name"
-            placeholder="Enter your username"
+            placeholder="Enter your usename"
             onChange={this.logindetail}
           />
-         
-          {/* <Input  type="text"
-            name="name" size="small"  onChange={this.logindetail} placeholder="Username" prefix={<UserOutlined />} /> */}
           <br />
           <input
             type="password"
@@ -74,20 +73,13 @@ class Login extends Component {
             placeholder="Enter your password"
             onChange={this.logindetail}
           />
-          {/* <Input   type="password" */}
-            {/* name=/"password" size="small"  onChange={this.logindetail} placeholder="Password" prefix={<UserOutlined />} /> */}
-         
           <br />
-          <input type="submit" value="Login" className="button"/>
-          {/* <button className="button">
-            <Link to="/register">Signup</Link>
-          </button> */}
-         
-          <Button type="primary" danger>
-          <Link to="/register">Signup</Link>
-    </Button>
+          <input type="submit" value="LogIn" className="button"/>
+          <button className="button">
+            <Link to="/register">SignUp</Link>
+          </button>
         </form>
-      // </div>
+      </div>
     );
   }
 }

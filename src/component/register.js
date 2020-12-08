@@ -28,7 +28,7 @@ class Registration extends Component{
            
         }
         console.log(obj)
-        axios.post("https://5fb4b432e473ab0016a16c66.mockapi.io/blog/userdetail", obj)
+        axios.post("https://5fb4b432e473ab0016a16c66.mockapi.io/userdetail", obj)
             .then((result) => {
             console.log(result.data);
             })

@@ -12,8 +12,8 @@ constructor(props){
     render(){
         return (
         <>
-        <h1>Sucessfully Logout!! </h1>
-        <Link to="/login">Back to login Page</Link>
+        <h1>Logged out!! </h1>
+        <Link to="/login">Back to login </Link>
         </>);
     }
 }
